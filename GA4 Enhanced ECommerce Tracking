@@ -17,5 +17,30 @@ add_payment_info
 add_shipping_info
 purchase
 refund
+item_id
+item_name
+item_list_name
+item_list_id
+index
+item_brand
+item_category
+item_variant
+affiliation
+discount
+coupon
+price
+currency
+quantity
+promotion_id
+promotion_name
+transaction_id
+value_revenue
+shipping_shipping
+payment_type
+
+GA4 - Google Analytics 4 Enhanced ECommerce Data Layer Variable Name are as follows:
+
+
+
 
 
