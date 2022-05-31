@@ -1,0 +1,21 @@
+Sources: 
+https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtag#select_promotion
+https://www.simoahava.com/analytics/google-analytics-4-ecommerce-guide-google-tag-manager/
+
+GA4 - Google Analytics 4 Enhanced ECommerce Events:
+view_item
+view_item_list
+select_item
+view_promotion
+select_promotion
+add_to_cart
+view_cart
+add_to_wishlist
+remove_from_cart
+begin_checkout
+add_payment_info
+add_shipping_info
+purchase
+refund
+
+
