@@ -40,6 +40,214 @@ payment_type
 
 GA4 - Google Analytics 4 Enhanced ECommerce Data Layer Variable Name are as follows:
 
+#Clearing the ecommerce object
+
+It's recommended that you use the following command to clear the ecommerce object prior to pushing an ecommerce event to the data layer. 
+Clearing the object will prevent multiple ecommerce events on a page from affecting each other.
+
+dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+
+#View item list
+Send the view_item_list event when a user is shown a list of items, along with an items array parameter that includes the displayed items.
+
+#Tag configuration for this example:
+
+Tag type: GA4 Event
+Event Name: view_item_list
+Event Parameter (name - value): 'items' - {{Ecommerce Items}}
+Variable Type: data layer Variable - 'ecommerce.items'
+Trigger: event equals view_item_list
+
+dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  event: "view_item_list",
+  ecommerce: {
+    items: [
+     {
+      item_id: "SKU_12345",
+      item_name: "Stan and Friends Tee",
+      affiliation: "Google Merchandise Store",
+      coupon: "SUMMER_FUN",
+      currency: "USD",
+      discount: 2.22,
+      index: 0,
+      item_brand: "Google",
+      item_category: "Apparel",
+      item_category2: "Adult",
+      item_category3: "Shirts",
+      item_category4: "Crew",
+      item_category5: "Short sleeve",
+      item_list_id: "related_products",
+      item_list_name: "Related Products",
+      item_variant: "green",
+      location_id: "L_12345",
+      price: 9.99,
+      quantity: 1
+    },
+    {
+      item_id: "SKU_12346",
+      item_name: "Google Grey Women's Tee",
+      affiliation: "Google Merchandise Store",
+      coupon: "SUMMER_FUN",
+      currency: "USD",
+      discount: 3.33,
+      index: 1,
+      item_brand: "Google",
+      item_category: "Apparel",
+      item_category2: "Adult",
+      item_category3: "Shirts",
+      item_category4: "Crew",
+      item_category5: "Short sleeve",
+      item_list_id: "related_products",
+      item_list_name: "Related Products",
+      item_variant: "gray",
+      location_id: "L_12345",
+      price: 20.99,
+      promotion_id: "P_12345",
+      promotion_name: "Summer Sale",
+      quantity: 1
+    }]
+  }
+});
+
+#Analytics increments the Item list views metric by 1 each time the event triggers.
+
+#View item
+Send the view_item event when a user is shown a product, along with an items array parameter that includes the item shown.
+
+##Tag configuration for this example:
+
+Tag type: GA4 Event
+Event Name: view_item
+Event Parameter (name - value): 'items' - {{Ecommerce Items}}
+Variable Type: data layer Variable - 'ecommerce.items'
+Trigger: event equals view_item
+
+dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  event: "view_item",
+  ecommerce: {
+    items: [
+    {
+      item_id: "SKU_12345",
+      item_name: "Stan and Friends Tee",
+      affiliation: "Google Merchandise Store",
+      coupon: "SUMMER_FUN",
+      currency: "USD",
+      discount: 2.22,
+      index: 0,
+      item_brand: "Google",
+      item_category: "Apparel",
+      item_category2: "Adult",
+      item_category3: "Shirts",
+      item_category4: "Crew",
+      item_category5: "Short sleeve",
+      item_list_id: "related_products",
+      item_list_name: "Related Products",
+      item_variant: "green",
+      location_id: "L_12345",
+      price: 9.99,
+      quantity: 1
+    }
+    ]
+  }
+});
+
+#Analytics increments the Item views metric by 1 each time the event triggers.
+
+##Select item
+Send the select_item event when a user selects an item from a list, along with an items array parameter that includes the selected item. 
+
+#Tag configuration for this example:
+
+Tag type: GA4 Event
+Event Name: select_item
+Event Parameter (name - value): 'items' - {{Ecommerce Items}}
+Variable Type: data layer Variable - 'ecommerce.items'
+Trigger: event equals select_item
+
+dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  event: "select_item",
+  ecommerce: {
+    items: [
+    {
+      item_id: "SKU_12345",
+      item_name: "Stan and Friends Tee",
+      affiliation: "Google Merchandise Store",
+      coupon: "SUMMER_FUN",
+      currency: "USD",
+      discount: 2.22,
+      index: 0,
+      item_brand: "Google",
+      item_category: "Apparel",
+      item_category2: "Adult",
+      item_category3: "Shirts",
+      item_category4: "Crew",
+      item_category5: "Short sleeve",
+      item_list_id: "related_products",
+      item_list_name: "Related Products",
+      item_variant: "green",
+      location_id: "L_12345",
+      price: 9.99,
+      quantity: 1
+    }
+    ]
+  }
+});
+
+
+##Internal promotions
+Internal promotions are a way of advertising one part of your site from another part of your site. For example, you can place a banner 
+on your home page that advertises a 5% discount on shirts. You can use promotion views and clicks to attribute credit to purchases 
+that started with a promotion.
+
+#View promotion
+Send the view_promotion event when a user is shown a promotion, along with an items array parameter that includes the promoted item. 
+
+#Tag configuration for this example:
+
+Tag type: GA4 Event
+Event Name: view_promotion
+Event Parameter (name - value): 'items' - {{Ecommerce Items}}
+Variable Type: data layer Variable - 'ecommerce.items'
+Trigger: event equals view_promotion
+
+dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  event: "view_promotion",
+  ecommerce: {
+    items: [
+    {
+      item_id: "SKU_12345",
+      item_name: "Stan and Friends Tee",
+      affiliation: "Google Merchandise Store",
+      coupon: "SUMMER_FUN",
+      currency: "USD",
+      discount: 2.22,
+      index: 0,
+      item_brand: "Google",
+      item_category: "Apparel",
+      item_category2: "Adult",
+      item_category3: "Shirts",
+      item_category4: "Crew",
+      item_category5: "Short sleeve",
+      item_list_id: "related_products",
+      item_list_name: "Related Products",
+      item_variant: "green",
+      location_id: "L_12345",
+      price: 9.99,
+      quantity: 1
+    }
+    ]
+  }
+});
+
+Analytics increments the Item promotion views metric by 1 each time the event triggers.
+
+##Select promotion
+Send the select_promotion event when a user clicks a promotion, along with an items array parameter that includes the selected 
+item associated with the promotion. For details on the parameters to send, see the Events reference.
 
 
 
