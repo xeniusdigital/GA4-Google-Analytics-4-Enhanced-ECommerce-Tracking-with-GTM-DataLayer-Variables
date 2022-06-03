@@ -247,8 +247,257 @@ Analytics increments the Item promotion views metric by 1 each time the event tr
 
 ##Select promotion
 Send the select_promotion event when a user clicks a promotion, along with an items array parameter that includes the selected 
-item associated with the promotion. For details on the parameters to send, see the Events reference.
+item associated with the promotion. For details on the parameters to send, 
+#see the Events reference on https://developers.google.com/analytics/devguides/collection/ga4/reference/events?client_type=gtm#select_promotion
 
+#Tag configuration for this example:
+
+Tag type: GA4 Event
+Event Name: select_promotion
+Event Parameter (name - value): 'items' - {{Ecommerce Items}}
+Variable Type: data layer Variable - 'ecommerce.items'
+Trigger: event equals select_promotion
+
+dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  event: "select_promotion",
+  ecommerce: {
+    items: [
+    {
+      item_id: "SKU_12345",
+      item_name: "Stan and Friends Tee",
+      affiliation: "Google Merchandise Store",
+      coupon: "SUMMER_FUN",
+      currency: "USD",
+      discount: 2.22,
+      index: 0,
+      item_brand: "Google",
+      item_category: "Apparel",
+      item_category2: "Adult",
+      item_category3: "Shirts",
+      item_category4: "Crew",
+      item_category5: "Short sleeve",
+      item_list_id: "related_products",
+      item_list_name: "Related Products",
+      item_variant: "green",
+      location_id: "L_12345",
+      price: 9.99,
+      quantity: 1
+    }
+    ]
+  }
+});
+
+
+Analytics increments the Item promotion clicks metric by 1 each time the event triggers.
+
+
+##Shopping cart interactions
+These events enable you to measure how often users show an interest in purchasing the products you sell.
+
+#Add to cart
+Send the add_to_cart event when a user adds an item to their shopping cart, along with an items array parameter that includes the items they added to their cart. For details on the parameters to send, see the Events reference.
+
+#Example
+A user clicks an "Add to cart" button for a Stan and Friends Tee from the Google Merchandise Store. On the product page, you can add the following snippet to an event listener in your JavaScript that triggers when a user clicks the button.
+
+#Tag configuration for this example:
+
+Tag type: GA4 Event
+Event Name: add_to_cart
+Event Parameter (name - value): 'items' - {{Ecommerce Items}}
+Variable Type: data layer Variable - 'ecommerce.items'
+Trigger: event equals add_to_cart
+
+dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  event: "add_to_cart",
+  ecommerce: {
+    items: [
+    {
+      item_id: "SKU_12345",
+      item_name: "Stan and Friends Tee",
+      affiliation: "Google Merchandise Store",
+      coupon: "SUMMER_FUN",
+      currency: "USD",
+      discount: 2.22,
+      index: 0,
+      item_brand: "Google",
+      item_category: "Apparel",
+      item_category2: "Adult",
+      item_category3: "Shirts",
+      item_category4: "Crew",
+      item_category5: "Short sleeve",
+      item_list_id: "related_products",
+      item_list_name: "Related Products",
+      item_variant: "green",
+      location_id: "L_12345",
+      price: 9.99,
+      quantity: 1
+    }
+    ]
+  }
+});
+
+
+#Analytics updates the following metrics each time the event triggers:
+The Add-to-carts metric increments by 1
+The numerator of the Cart-to-view rate metric increments by 1
+
+#Add to wishlist
+Send the add_to_wishlist event when a user adds an item to their wishlist, along with an items array parameter that includes the item they added to their wishlist. For details on the parameters to send, see the Events reference.
+
+#Example
+A user clicks an "Add to wishlist" button for a Stan and Friends Tee from the Google Merchandise Store. On the product page, you can add the following snippet to an event listener to your JavaScript that triggers when users click the button:
+
+#Tag configuration for this example:
+
+Tag type: GA4 Event
+Event Name: add_to_wishlist
+Data Layer Variables (Name - Data Layer Variable Name) :
+Ecommerce Items - ecommerce.items
+Ecommerce Value - ecommerce.value
+Ecommerce Currency - ecommerce.currency
+Event Parameters (Parameter Name - Value):
+items - {{Ecommerce Items}}
+value - {{Ecommerce Value}}
+currency - {{Ecommerce Currency}}
+Trigger: event equals add_to_wishlist
+
+dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  event: "add_to_wishlist",
+  ecommerce: {
+    currency: "USD",
+    value: 7.77,
+    items: [
+    {
+      item_id: "SKU_12345",
+      item_name: "Stan and Friends Tee",
+      affiliation: "Google Merchandise Store",
+      coupon: "SUMMER_FUN",
+      currency: "USD",
+      discount: 2.22,
+      index: 0,
+      item_brand: "Google",
+      item_category: "Apparel",
+      item_category2: "Adult",
+      item_category3: "Shirts",
+      item_category4: "Crew",
+      item_category5: "Short sleeve",
+      item_list_id: "related_products",
+      item_list_name: "Related Products",
+      item_variant: "green",
+      location_id: "L_12345",
+      price: 9.99,
+      quantity: 1
+    }
+    ]
+  }
+});
+
+
+
+##Remove from cart
+Send the remove_from_cart event when a user removes an item from their shopping cart, along with an items array parameter that includes the item they removed. For details on the parameters to send, see the Events reference.
+
+Example
+A user clicks a "Remove from cart" button for a Stan and Friends Tee from the Google Merchandise Store. On the shopping cart page, you can add the following snippet to an event listener in your JavaScript that triggers when a user clicks the button.
+
+#Tag configuration for this example:
+
+Tag type: GA4 Event
+Event Name: remove_from_cart
+Event Parameter (name - value): 'items' - {{Ecommerce Items}}
+Variable Type: data layer Variable - 'ecommerce.items'
+Trigger: event equals remove_from_cart
+
+dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  event: "remove_from_cart",
+  ecommerce: {
+    items: [
+    {
+      item_id: "SKU_12345",
+      item_name: "Stan and Friends Tee",
+      affiliation: "Google Merchandise Store",
+      coupon: "SUMMER_FUN",
+      currency: "USD",
+      discount: 2.22,
+      index: 0,
+      item_brand: "Google",
+      item_category: "Apparel",
+      item_category2: "Adult",
+      item_category3: "Shirts",
+      item_category4: "Crew",
+      item_category5: "Short sleeve",
+      item_list_id: "related_products",
+      item_list_name: "Related Products",
+      item_variant: "green",
+      location_id: "L_12345",
+      price: 9.99,
+      quantity: 1
+    }
+    ]
+  }
+});
+
+
+##View cart
+Send the view_cart event when a user views their shopping cart, along with an items array parameter that includes the items in their cart. For details on the parameters to send, see the Events reference.
+
+Example
+A user views their shopping cart, where their cart includes a Stan and Friends Tee. On the shopping cart page, you can add the following snippet to your JavaScript that triggers when a user lands on the page.
+
+#Tag configuration for this example:
+
+Tag type: GA4 Event
+Event Name: view_cart
+Data Layer Variables (Name - Data Layer Variable Name) :
+Ecommerce Items - ecommerce.items
+Ecommerce Value - ecommerce.value
+Ecommerce Currency - ecommerce.currency
+
+Event Parameters (Parameter Name - Value):
+items - {{Ecommerce Items}}
+value - {{Ecommerce Value}}
+currency - {{Ecommerce Currency}}
+Trigger: event equals view_cart
+
+dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  event: "view_cart",
+  ecommerce: {
+    currency: "USD",
+    value: 7.77,
+    items: [
+    {
+      item_id: "SKU_12345",
+      item_name: "Stan and Friends Tee",
+      affiliation: "Google Merchandise Store",
+      coupon: "SUMMER_FUN",
+      currency: "USD",
+      discount: 2.22,
+      index: 0,
+      item_brand: "Google",
+      item_category: "Apparel",
+      item_category2: "Adult",
+      item_category3: "Shirts",
+      item_category4: "Crew",
+      item_category5: "Short sleeve",
+      item_list_id: "related_products",
+      item_list_name: "Related Products",
+      item_variant: "green",
+      location_id: "L_12345",
+      price: 9.99,
+      quantity: 1
+    }
+    ]
+  }
+});
+
+
+Analytics increments the denominator of the Cart-to-view rate metric by 1 each time the event triggers.
 
 
 
